@@ -1,0 +1,6 @@
+services:
+-type:web
+name:student-card
+env:python
+buildCommand:pip install-rrequirements.txt
+startCommand:gunicorn app:app
