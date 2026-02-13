@@ -1,0 +1,55 @@
+!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>بطاقة طالب</title>
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+    <style>
+        body {
+            font-family: Arial;
+            max-width: 600px;
+            margin: auto;
+        }
+        .card {
+            border: 1px solid #000;
+            padding: 15px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>إدخال بيانات الطالب</h2>
+
+<form method="post">
+    <label>اسم الطالب:</label><br>
+    <input type="text" name="name" required><br><br>
+
+    <label>الرقم الجامعي:</label><br>
+    <input type="text" name="id" required><br><br>
+
+    <label>القسم:</label><br>
+    <input type="text" name="department" required><br><br>
+
+    <label>الجامعة:</label><br>
+    <input type="text" name="university" required><br><br>
+
+    <label>المستوى:</label><br>
+    <input type="text" name="level" required><br><br>
+
+    <button type="submit">عرض البطاقة</button>
+</form>
+
+{% if student %}
+<div class="card">
+    <h3>بطاقة الطالب</h3>
+    <p><strong>الاسم:</strong> {{ student.name }}</p>
+    <p><strong>الرقم:</strong> {{ student.id }}</p>
+    <p><strong>القسم:</strong> {{ student.department }}</p>
+    <p><strong>الجامعة:</strong> {{ student.university }}</p>
+    <p><strong>المستوى:</strong> {{ student.level }}</p>
+</div>
+{% endif %}
+
+</body>
+</html>
