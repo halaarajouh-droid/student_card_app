@@ -3,7 +3,7 @@ from flask import Flask, render_template, request
 app = Flask(__name__)
 
 @app.route("/", methods=["GET", "POST"])
-def index():
+def home():
     student = None
 
     if request.method == "POST":
@@ -16,3 +16,4 @@ def index():
         }
 
     return render_template("home.html", student=student)
+
